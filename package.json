@@ -1,0 +1,22 @@
+{
+  "name": "ripple",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Ripple — interactive decision intelligence for interconnected systems",
+  "packageManager": "pnpm@10.14.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @ripple/shared-types build && pnpm --parallel --filter @ripple/api --filter @ripple/web dev",
+    "dev:web": "pnpm --filter @ripple/web dev",
+    "dev:api": "pnpm --filter @ripple/api dev",
+    "build": "pnpm --filter @ripple/shared-types build && pnpm --filter @ripple/api build && pnpm --filter @ripple/web build",
+    "build:types": "pnpm --filter @ripple/shared-types build",
+    "lint": "pnpm --filter @ripple/api lint && pnpm --filter @ripple/web lint",
+    "typecheck": "pnpm --filter @ripple/shared-types typecheck && pnpm --filter @ripple/api typecheck && pnpm --filter @ripple/web typecheck",
+    "test": "pnpm --filter @ripple/api test && pnpm --filter @ripple/simulation-engine --if-present test",
+    "test:api": "pnpm --filter @ripple/api test",
+    "test:simulation": "cd apps/simulation-engine && python3 -m pytest"
+  }
+}
