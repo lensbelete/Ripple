@@ -12,6 +12,9 @@ export interface AppConfig {
   };
   simulationEngineUrl: string;
   healthTimeoutMs: number;
+  jwtSecret: string;
+  jwtExpiresIn: string;
+  authCookieName: string;
 }
 
 export function configuration(): AppConfig {
@@ -29,5 +32,8 @@ export function configuration(): AppConfig {
     },
     simulationEngineUrl: process.env.SIMULATION_ENGINE_URL ?? "http://localhost:8000",
     healthTimeoutMs: Number(process.env.HEALTH_TIMEOUT_MS ?? 2000),
+    jwtSecret: process.env.JWT_SECRET ?? "",
+    jwtExpiresIn: process.env.JWT_EXPIRES_IN ?? "7d",
+    authCookieName: process.env.AUTH_COOKIE_NAME ?? "ripple_token",
   };
 }

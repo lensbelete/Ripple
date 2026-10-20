@@ -2,6 +2,7 @@ import { Module } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { AppConfig } from "../config/configuration";
+import { InitialModelingSchema1760961600000 } from "./migrations/1760961600000-InitialModelingSchema";
 
 @Module({
   imports: [
@@ -18,6 +19,8 @@ import { AppConfig } from "../config/configuration";
           database: database.name,
           autoLoadEntities: true,
           synchronize: false,
+          migrations: [InitialModelingSchema1760961600000],
+          migrationsRun: true,
           logging: config.get("nodeEnv", { infer: true }) === "development" ? ["error" as const] : false,
         };
       },

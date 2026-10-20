@@ -7,6 +7,7 @@ import {
   IsUrl,
   Max,
   Min,
+  MinLength,
   validateSync,
 } from "class-validator";
 
@@ -54,6 +55,18 @@ class EnvironmentVariables {
   @Min(200)
   @Max(15000)
   HEALTH_TIMEOUT_MS?: number;
+
+  @IsString()
+  @MinLength(32)
+  JWT_SECRET!: string;
+
+  @IsOptional()
+  @IsString()
+  JWT_EXPIRES_IN?: string;
+
+  @IsOptional()
+  @IsString()
+  AUTH_COOKIE_NAME?: string;
 }
 
 export function validateEnvironment(config: Record<string, unknown>) {

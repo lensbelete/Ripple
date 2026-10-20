@@ -58,7 +58,15 @@ The browser talks only to the NestJS API. The API owns persistence and business 
    pip install -r apps/simulation-engine/requirements.txt -r apps/simulation-engine/requirements-dev.txt
    ```
 
-5. Start the simulation engine, API, and web app in separate terminals:
+5. Apply migrations and load the labeled sample model:
+
+   ```bash
+   pnpm seed
+   ```
+
+   Sample login: `demo@ripple.local` / `demo-ripple-2026`
+
+6. Start the simulation engine, API, and web app in separate terminals:
 
    ```bash
    source apps/simulation-engine/.venv/bin/activate
@@ -73,9 +81,10 @@ The browser talks only to the NestJS API. The API owns persistence and business 
    pnpm dev:web
    ```
 
-6. Open:
+7. Open:
 
    - Web: [http://localhost:3000](http://localhost:3000)
+   - Workspaces: [http://localhost:3000/workspaces](http://localhost:3000/workspaces)
    - API health: [http://localhost:3001/api/v1/health](http://localhost:3001/api/v1/health)
    - API docs: [http://localhost:3001/api/docs](http://localhost:3001/api/docs)
    - Simulation health: [http://localhost:8000/health](http://localhost:8000/health)
@@ -103,9 +112,11 @@ pnpm lint
 
 ## Current scope
 
-The foundation is in place: monorepo layout, service health checks, database connectivity, and a product UI shell.
+Users can register, create workspaces, build a typed dependency graph, save it, reload it, and validate it. Cycles and invalid node configuration are rejected with explanations.
 
-System modeling, simulation, authentication, and scenario analysis are implemented in later stages.
+Simulation, scenarios, and intervention planning are not implemented yet.
+
+Set `JWT_SECRET` in `.env` to a long random string before starting the API.
 
 ## Troubleshooting
 
@@ -113,6 +124,6 @@ System modeling, simulation, authentication, and scenario analysis are implement
 
 **API reports the simulation engine as down.** Start the Python service first, or confirm `SIMULATION_ENGINE_URL` (`http://localhost:8000` on the host, `http://simulation-engine:8000` inside Compose).
 
-**Web cannot reach the API.** The browser uses `NEXT_PUBLIC_API_URL`. For local Docker this should remain `http://localhost:3001` so the host browser can reach the published API port.
+**Web cannot reach the API.** The Next.js app proxies `/api/v1` to the NestJS origin. Confirm the API is running and `JWT_SECRET` is set.
 
 **Port already in use.** Change `API_PORT`, `WEB_PORT`, `SIMULATION_PORT`, or `DATABASE_PORT` in `.env`. If another PostgreSQL instance already owns 5432, set `DATABASE_PORT=5433` and restart Compose. The API container still talks to PostgreSQL on the internal port 5432.

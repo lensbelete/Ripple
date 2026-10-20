@@ -17,6 +17,7 @@
     "typecheck": "pnpm --filter @ripple/shared-types typecheck && pnpm --filter @ripple/api typecheck && pnpm --filter @ripple/web typecheck",
     "test": "pnpm --filter @ripple/api test && pnpm --filter @ripple/simulation-engine --if-present test",
     "test:api": "pnpm --filter @ripple/api test",
-    "test:simulation": "cd apps/simulation-engine && python3 -m pytest"
+    "test:simulation": "cd apps/simulation-engine && python3 -m pytest",
+    "seed": "pnpm --filter @ripple/api seed"
   }
 }

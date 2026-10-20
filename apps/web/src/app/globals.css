@@ -25,3 +25,12 @@ body {
   background: var(--color-accent-soft);
   color: var(--color-ink);
 }
+
+.react-flow {
+  background: var(--color-paper);
+}
+
+.react-flow__controls-button,
+.react-flow__minimap {
+  border-color: var(--color-line) !important;
+}

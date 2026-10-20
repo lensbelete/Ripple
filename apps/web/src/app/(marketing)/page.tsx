@@ -38,11 +38,17 @@ export default function HomePage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
-              href="/status"
+              href="/register"
               className="inline-flex items-center gap-2 bg-accent px-4 py-2 text-sm font-medium text-paper-raised hover:bg-[#173c3a]"
             >
-              View system status
+              Create an account
               <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              href="/workspaces"
+              className="inline-flex items-center gap-2 border border-line bg-paper-raised px-4 py-2 text-sm font-medium text-ink hover:border-ink"
+            >
+              Open workspaces
             </Link>
           </div>
         </div>
