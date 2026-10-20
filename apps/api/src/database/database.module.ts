@@ -3,6 +3,7 @@ import { ConfigService } from "@nestjs/config";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { AppConfig } from "../config/configuration";
 import { InitialModelingSchema1760961600000 } from "./migrations/1760961600000-InitialModelingSchema";
+import { SimulationRuns1760961700000 } from "./migrations/1760961700000-SimulationRuns";
 
 @Module({
   imports: [
@@ -19,7 +20,7 @@ import { InitialModelingSchema1760961600000 } from "./migrations/1760961600000-I
           database: database.name,
           autoLoadEntities: true,
           synchronize: false,
-          migrations: [InitialModelingSchema1760961600000],
+          migrations: [InitialModelingSchema1760961600000, SimulationRuns1760961700000],
           migrationsRun: true,
           logging: config.get("nodeEnv", { infer: true }) === "development" ? ["error" as const] : false,
         };

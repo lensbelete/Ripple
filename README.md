@@ -114,7 +114,9 @@ pnpm lint
 
 Users can register, create workspaces, build a typed dependency graph, save it, reload it, and validate it. Cycles and invalid node configuration are rejected with explanations.
 
-Simulation, scenarios, and intervention planning are not implemented yet.
+A saved model can be simulated: the engine compares a baseline against a scenario modification, then stores the snapshot and the calculated delays, shortages, and causal paths.
+
+Scenario comparison across multiple named alternatives, and intervention optimization, are not implemented yet.
 
 Set `JWT_SECRET` in `.env` to a long random string before starting the API.
 

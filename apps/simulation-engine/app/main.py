@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
 from app.api.routes.health import router as health_router
+from app.api.routes.simulate import router as simulate_router
 from app.core.config import settings
 
 app = FastAPI(
@@ -10,6 +11,7 @@ app = FastAPI(
 )
 
 app.include_router(health_router)
+app.include_router(simulate_router)
 
 
 @app.get("/", include_in_schema=False)

@@ -60,6 +60,10 @@ The Next.js app proxies `/api/v1/*` to NestJS so the browser talks to a single o
 
 A system model is a directed graph of typed nodes and dependencies stored in PostgreSQL. The editor can save an incomplete graph. `POST /api/v1/models/:id/validate` runs cycle detection and type-specific configuration checks without changing stored data.
 
+## Simulation
+
+`POST /api/v1/models/:id/simulate` validates the saved graph, sends a snapshot to the Python engine, and stores the completed result. The frontend never calls the simulation service.
+
 ## Out of scope until later stages
 
-Scenario analysis, simulation calculations, and intervention optimization are built on this model, not invented in the UI.
+Named multi-scenario comparison and intervention optimization.

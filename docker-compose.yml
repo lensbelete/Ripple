@@ -58,6 +58,7 @@ services:
       CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:3000}
       SIMULATION_ENGINE_URL: http://simulation-engine:8000
       HEALTH_TIMEOUT_MS: ${HEALTH_TIMEOUT_MS:-2000}
+      SIMULATION_TIMEOUT_MS: ${SIMULATION_TIMEOUT_MS:-20000}
       JWT_SECRET: ${JWT_SECRET:?JWT_SECRET must be set}
       JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-7d}
       AUTH_COOKIE_NAME: ${AUTH_COOKIE_NAME:-ripple_token}

@@ -10,6 +10,7 @@ import { validateEnvironment } from "./config/env.validation";
 import { DatabaseModule } from "./database/database.module";
 import { HealthModule } from "./health/health.module";
 import { ModelsModule } from "./models/models.module";
+import { SimulationsModule } from "./simulations/simulations.module";
 import { UsersModule } from "./users/users.module";
 import { WorkspacesModule } from "./workspaces/workspaces.module";
 
@@ -31,6 +32,7 @@ import { WorkspacesModule } from "./workspaces/workspaces.module";
     AuthModule,
     WorkspacesModule,
     ModelsModule,
+    SimulationsModule,
     HealthModule,
   ],
   providers: [

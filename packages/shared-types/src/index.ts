@@ -41,3 +41,18 @@ export type {
 
 export { defaultNodeConfig, isNodeType, parseNodeConfig, validateNodeConfig } from "./node-config";
 export { validateModelGraph } from "./graph-validation";
+
+export type {
+  AffectedNode,
+  CausalPath,
+  ConstraintViolation,
+  CostDifference,
+  DelayedOrder,
+  EngineRunResult,
+  EngineSimulationResult,
+  NodeRunResult,
+  Shortage,
+  SimulationModification,
+  SimulationRunDetailDto,
+  SimulationRunDto,
+} from "./simulation";

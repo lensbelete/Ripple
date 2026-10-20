@@ -56,6 +56,12 @@ class EnvironmentVariables {
   @Max(15000)
   HEALTH_TIMEOUT_MS?: number;
 
+  @IsOptional()
+  @IsInt()
+  @Min(1000)
+  @Max(120000)
+  SIMULATION_TIMEOUT_MS?: number;
+
   @IsString()
   @MinLength(32)
   JWT_SECRET!: string;

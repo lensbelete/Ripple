@@ -15,11 +15,12 @@ Every system model uses **days from a model origin**. Durations, lead times, and
 | `system_models` | Named graphs with a time unit |
 | `model_nodes` | Typed nodes and canvas positions |
 | `model_dependencies` | Directed edges with quantity and timing |
-| `audit_events` | Create, update, delete, and graph-save records |
+| `audit_events` | Create, update, delete, graph-save, and simulation records |
+| `simulation_runs` | Completed simulation results with the graph snapshot used |
 
 A node `config` JSON object is validated against the node type. It is not a substitute for the `type`, `name`, or relationship columns.
 
-Later simulation runs will snapshot the graph they used. Editing a live model must not silently rewrite a completed simulation.
+Each completed simulation stores the graph snapshot it used. Editing a live model must not rewrite a stored result.
 
 ## Ownership
 

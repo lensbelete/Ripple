@@ -250,6 +250,12 @@ function ModelEditorCanvas({ modelId }: ModelEditorProps) {
           <Button variant="secondary" onClick={() => void reload()}>
             Reload
           </Button>
+          <Link
+            href={`/models/${modelId}/simulate`}
+            className="inline-flex items-center justify-center border border-line bg-paper-raised px-4 py-2 text-sm font-medium text-ink hover:border-ink"
+          >
+            Simulate
+          </Link>
           <Button variant="secondary" onClick={() => void validate()} disabled={validating}>
             {validating ? "Validating" : "Validate"}
           </Button>
